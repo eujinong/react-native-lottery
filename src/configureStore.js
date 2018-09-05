@@ -1,12 +1,12 @@
 import { applyMiddleware, createStore } from 'redux';
 import { fromJS } from 'immutable';
 import devTools from 'remote-redux-devtools';
-import createReducer from '@reducers';
+import createReducer from './reducers';
 
 function configureStore(initialState = fromJS({})) {
   const middlewares = [];
   const enhancers = [
-    applyMiddleware(...middlewares),
+    applyMiddleware(...middlewares)
   ];
 
   if (__DEV__) {

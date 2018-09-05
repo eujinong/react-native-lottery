@@ -13,6 +13,7 @@ const RestApi = {
       headers: realHeaders
     });
   },
+
   post: (url, params = {}, headers = {}) => {
     const realHeaders = { ...headers };
     return fetch(url, {
@@ -21,6 +22,7 @@ const RestApi = {
       body: params
     });
   },
+
   put: (url, params = {}, headers = {}) => {
     const realHeaders = { ...headers };
     return fetch(url, {
@@ -29,6 +31,7 @@ const RestApi = {
       body: params
     });
   },
+
   delete: (url, params = {}, headers = {}) => {
     const realHeaders = { ...headers };
     const queryString = StringHelper.serializeObject(params);
@@ -41,6 +44,7 @@ const RestApi = {
       headers: realHeaders
     });
   }
+
 };
 
 export default RestApi;

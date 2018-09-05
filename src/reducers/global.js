@@ -1,18 +1,18 @@
 import Immutable from 'seamless-immutable';
 import { createReducer } from 'reduxsauce';
-import Types from '@actions/actionTypes';
+import Types from '../actions/actionTypes';
 
 // import I18n from 'react-native-i18n';
 // import _ from 'lodash';
 
 export const initialState = Immutable({
-  ini: null,
+  domains: null,
   rewardedCount: 0
 });
 
-const setIni = (state, action) => ({
+const setDomains = (state, action) => ({
   ...state,
-  ini: action.ini
+  domains: action.domains
 });
 
 
@@ -22,7 +22,7 @@ const increaseRewarded = (state, action) => ({
 });
 
 const actionHandlers = {
-  [Types.SET_INI]: setIni,
+  [Types.SET_DOMAINS]: setDomains,
   [Types.INCREASE_REWARDED]: increaseRewarded
 };
 

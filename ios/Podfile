@@ -35,4 +35,6 @@ target 'loterias' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'RNI18n', :path => '../node_modules/react-native-i18n'
+
 end

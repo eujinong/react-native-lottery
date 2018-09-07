@@ -1,14 +1,52 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
+import { connect } from 'react-redux';
 import firebase from 'react-native-firebase';
+import { StackNavigator } from 'react-navigation';
+
+
+import { Styles, Colors } from '../theme';
+import Api from '../apis';
+import { setConfig } from '../actions/global';
+import SplashScreen from './SplashScreen';
+import DomainsScreen from './DomainsScreen';
 
 const { Banner, AdRequest } = firebase.admob;
 const request = new AdRequest();
 
+const MainNavigator = StackNavigator({
+  domains: {
+    screen: DomainsScreen
+  }
+}, {
+  navigationOptions: {
+    headerStyle: Styles.navigationHeader
+  }
+});
+
 class Index extends Component {
-  render() {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      splashing: true
+    };
+  }
+
+  async componentDidMount() {
+    const config = await Api.getConfig();
+    this.props.setConfig(config);
+    setTimeout(() => {
+      this.setState({
+        splashing: false
+      });
+    }, 1000);
+  }
+
+  renderMain() {
     return (
-      <View>
+      <View style={Styles.container}>
+        <MainNavigator ref={(navigator) => { this.navigator = navigator; }} />
         <Banner
           unitId="ca-app-pub-3940256099942544/2934735716"
           request={request.build()}
@@ -19,6 +57,25 @@ class Index extends Component {
       </View>
     );
   }
+
+  render() {
+    const { splashing } = this.state;
+    return (
+      <View style={Styles.container}>
+        {
+          splashing ? <SplashScreen /> : this.renderMain()
+        }
+      </View>
+    );
+  }
 }
 
-export default Index;
+const mapStateToProps = state => ({
+  global: state.get('global')
+});
+
+const mapDispatchToProps = dispatch => ({
+  dispatch,
+  setConfig: config => dispatch(setConfig(config))
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Index);

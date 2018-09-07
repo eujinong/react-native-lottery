@@ -1,4 +1,4 @@
-const colors = {
+const Colors = {
   primary: '#4285F4',
   info: '#05bfec',
   success: '#2DA94F',
@@ -6,12 +6,15 @@ const colors = {
   warning: '#FDBD00',
   transparent: 'transparent',
 
+  // DomainItem
+  domainItemBorder: '#EBECED',
+
   // caret color
   caret: '#00d800',
   caretHighlight: '#01AA00',
 
   // main background
-  background: '#ECEFF1',
+  background: '#FFFFFF',
 
   // banner
   bannerBackground: '#ECEFF1',
@@ -32,7 +35,7 @@ const colors = {
   inputTextBorder: '#DDD',
 
   // component colors
-  navigationBackground: '#0D4880',
+  navigationBackground: '#363636',
   navigationShadow: '#b93400',
   navigationText: '#FFF',
 
@@ -103,4 +106,4 @@ const colors = {
   tableItemText: '#1A314D'
 };
 
-export default colors;
+export default Colors;

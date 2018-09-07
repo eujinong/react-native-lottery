@@ -6,13 +6,13 @@ import Types from '../actions/actionTypes';
 // import _ from 'lodash';
 
 export const initialState = Immutable({
-  domains: null,
+  config: [],
   rewardedCount: 0
 });
 
-const setDomains = (state, action) => ({
+const setConfig = (state, action) => ({
   ...state,
-  domains: action.domains
+  config: action.config
 });
 
 
@@ -22,7 +22,7 @@ const increaseRewarded = (state, action) => ({
 });
 
 const actionHandlers = {
-  [Types.SET_DOMAINS]: setDomains,
+  [Types.SET_CONFIG]: setConfig,
   [Types.INCREASE_REWARDED]: increaseRewarded
 };
 

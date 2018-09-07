@@ -1,7 +1,7 @@
 import { Platform } from 'react-native';
 
 const config = {
-  SERVER: 'https://loteriasdecolombia.co/mobile-api-new',
+  API_ENDPOINT: 'https://loteriasdominicanas.com/mobile-api-new',
 
   // ADMOB
   ADMOB: {
@@ -16,6 +16,10 @@ const config = {
         INTERSTITIAL: 'ca-app-pub-1196303242456869/4137335574'
       }
     })
+  },
+
+  FIELDS: {
+    DOMAIN: 'domain'
   },
 
   SETTINGS: {

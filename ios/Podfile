@@ -39,4 +39,6 @@ target 'loterias' do
 
   pod 'RNI18n', :path => '../node_modules/react-native-i18n'
 
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
+
 end

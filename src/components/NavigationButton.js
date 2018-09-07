@@ -1,17 +1,19 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import { Metrics, Fonts, Colors } from '../theme';
 
 const styles = {
   container: {
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingVertical: 5,
+    paddingHorizontal: 15
   },
   icon: {
     color: Colors.navigationText,
-    fontSize: Fonts.size.h4
+    fontSize: Fonts.size.h3
   }
 };
 

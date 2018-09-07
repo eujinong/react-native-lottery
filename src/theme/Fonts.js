@@ -10,6 +10,12 @@ const size = {
   tiny: 9
 };
 
+const weight = {
+  bold: 'bold',
+  normal: 'normal'
+};
+
 export default {
-  size
+  size,
+  weight
 };

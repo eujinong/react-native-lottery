@@ -5,7 +5,7 @@ import firebase from 'react-native-firebase';
 import { StackNavigator } from 'react-navigation';
 
 
-import { Styles, Colors } from '../theme';
+import { Styles } from '../theme';
 import Api from '../apis';
 import { setConfig } from '../actions/global';
 import SplashScreen from './SplashScreen';

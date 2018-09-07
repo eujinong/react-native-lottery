@@ -23,7 +23,7 @@ const styles = {
   }
 };
 
-class DomainsScreen extends Component {
+class CompaniesScreen extends Component {
   static navigationOptions = navigation => ({
     headerLeft: <NavigationButton icon="bars" />,
     headerTitle: <NavigationTitle text="Loterias" />,
@@ -67,4 +67,4 @@ const mapDispatchToProps = dispatch => ({
   dispatch
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DomainsScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(CompaniesScreen);

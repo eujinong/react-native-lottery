@@ -11,7 +11,7 @@ const styles = {
   },
   image: {
     width: 50,
-    height: 20,
+    height: 30,
     marginRight: 10
   },
   text: {
@@ -22,13 +22,19 @@ const styles = {
 };
 
 const NavigationTitle = (props) => {
-  const { text } = props;
+  const { text, logo } = props;
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={Images.logo} resizeMode="contain" />
+      {
+        logo && <Image style={styles.image} source={logo} resizeMode="contain" />
+      }
       <Text style={styles.text}>{text}</Text>
     </View>
   );
+};
+
+NavigationTitle.defaultProps = {
+  logo: Images.logo
 };
 
 export default NavigationTitle;

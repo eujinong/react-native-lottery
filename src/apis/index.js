@@ -10,8 +10,8 @@ const Api = {
     try {
       const res = await RestApi.get(url);
       if (res.status === 200) {
-        const data = await res.json();
-        return data;
+        const data = await res.text();
+        return JSON.parse(data);
       }
       return [];
     } catch (error) {
@@ -45,13 +45,28 @@ const Api = {
     return null;
   },
 
-  async getGameResult(domain, params) {
+  async getCompanies(domain) {
+    const url = `${domain.endpoint}/companies`;
+    console.log(url);
+    try {
+      const res = await RestApi.get(url);
+      if (res.status === 200) {
+        const data = await res.text();
+        return JSON.parse(data);
+      }
+      return null;
+    } catch (error) {
+      console.log(error); return null;
+    }
+  },
+
+  async getGame(domain, params) {
     const url = `${domain.endpoint}/sessions`;
     try {
       const res = await RestApi.get(url, params);
       if (res.status === 200) {
-        const data = await res.json();
-        return data;
+        const data = await res.text();
+        return JSON.parse(data);
       }
       return null;
     } catch (error) {
@@ -60,18 +75,18 @@ const Api = {
     }
   },
 
-  async getCompanyResult(domain, params) {
+  async getCompanyGames(domain, params) {
     const url = `${domain.endpoint}/company-sessions`;
     try {
-      const res = await fetch(url, params);
+      const res = await RestApi.get(url, params);
       if (res.status === 200) {
-        const data = await res.json();
-        return data;
+        const data = await res.text();
+        return JSON.parse(data);
       }
-      return null;
+      return [];
     } catch (error) {
       console.log(error);
-      return null;
+      return [];
     }
   },
 
@@ -80,8 +95,8 @@ const Api = {
     try {
       const res = await RestApi.get(url);
       if (res.status === 200) {
-        const data = await res.json();
-        return data;
+        const data = await res.text();
+        return JSON.stringify(data);
       }
       return null;
     } catch (error) {
@@ -95,8 +110,8 @@ const Api = {
     try {
       const res = await RestApi.get(url);
       if (res.status === 200) {
-        const data = await res.json();
-        return data;
+        const data = await res.text();
+        return JSON.stringify(data);
       }
       return null;
     } catch (error) {

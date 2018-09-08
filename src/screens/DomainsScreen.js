@@ -14,8 +14,8 @@ import NavigationButton from '../components/NavigationButton';
 const styles = {
   list: {
     flexDirection: 'row',
-    padding: Metrics.padding.tiny,
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    padding: Metrics.padding.tiny
   },
   listItem: {
     width: (Metrics.dimension.width) / 2 - Metrics.padding.tiny,
@@ -24,37 +24,33 @@ const styles = {
 };
 
 class DomainsScreen extends Component {
-  static navigationOptions = navigation => ({
+  static navigationOptions = ({
     headerLeft: <NavigationButton icon="bars" />,
-    headerTitle: <NavigationTitle text="Loterias" />,
-    headerRight: <NavigationButton icon="globe" />
+    headerTitle: <NavigationTitle text="Loterias" />
   })
 
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  handleDomainItemPress(domain) {
-    Api.saveDomain(domain);
+  async handleDomainItemPress(domain) {
+    await Api.saveDomain(domain);
+    this.props.navigation.navigate('companies', { domain });
   }
 
   render() {
-    const { props } = this;
-    const { config } = props.global;
+    const { config } = this.props.global;
 
     return (
-      <ScrollView style={[Styles.container, Styles.bg]}>
-        <View style={styles.list}>
-          {
-            config && config.domains && config.domains.map((domain, index) => (
-              <View style={styles.listItem} key={`${index}`}>
-                <DomainItem data={domain} />
-              </View>
-            ))
-          }
-        </View>
-      </ScrollView>
+      <View style={[Styles.container, Styles.bg]}>
+        <ScrollView style={[Styles.container]}>
+          <View style={styles.list}>
+            {
+              config && config.domains && config.domains.map((domain, index) => (
+                <View style={styles.listItem} key={`${index}`}>
+                  <DomainItem data={domain} onPress={this.handleDomainItemPress.bind(this)} />
+                </View>
+              ))
+            }
+          </View>
+        </ScrollView>
+      </View>
     );
   }
 }

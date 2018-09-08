@@ -29,4 +29,8 @@ const NavigationButton = (props) => {
   );
 };
 
+NavigationButton.defaultProps = {
+  onPress: () => {}
+};
+
 export default NavigationButton;

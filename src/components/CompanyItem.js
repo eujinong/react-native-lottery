@@ -35,23 +35,25 @@ const styles = {
   }
 };
 
-const DomainItem = (props) => {
+const CompanyItem = (props) => {
   const { data } = props;
   return (
     <TouchableOpacity
       style={styles.container}
       activeOpacity={Metrics.touchableOpacity}
       onPress={() => { props.onPress(data); }}>
-      <Image style={styles.image} resizeMode="cover" source={Images.splash} />
+      {
+        data.logo && <Image style={styles.image} resizeMode="cover" source={{ uri: data.logo }} />
+      }
       <View style={styles.content}>
-        <Text style={styles.text}>{data.country}</Text>
+        <Text style={styles.text}>{data.title}</Text>
       </View>
     </TouchableOpacity>
   );
 };
 
-DomainItem.defaultProps = {
+CompanyItem.defaultProps = {
   onPress: () => {}
 };
 
-export default DomainItem;
+export default CompanyItem;

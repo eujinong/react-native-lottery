@@ -10,6 +10,8 @@ import Api from '../apis';
 import { setConfig } from '../actions/global';
 import SplashScreen from './SplashScreen';
 import DomainsScreen from './DomainsScreen';
+import CompaniesScreen from './CompaniesScreen';
+import CompanyScreen from './CompanyScreen';
 
 const { Banner, AdRequest } = firebase.admob;
 const request = new AdRequest();
@@ -17,6 +19,12 @@ const request = new AdRequest();
 const MainNavigator = StackNavigator({
   domains: {
     screen: DomainsScreen
+  },
+  companies: {
+    screen: CompaniesScreen
+  },
+  company: {
+    screen: CompanyScreen
   }
 }, {
   navigationOptions: {

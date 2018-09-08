@@ -7,7 +7,7 @@ const Colors = {
   transparent: 'transparent',
 
   // DomainItem
-  domainItemBorder: '#EBECED',
+  border: '#EBECED',
 
   // caret color
   caret: '#00d800',
@@ -16,27 +16,21 @@ const Colors = {
   // main background
   background: '#FFFFFF',
 
-  // banner
-  bannerBackground: '#ECEFF1',
-
   // activityIndicator color
-  activityIndicator: '#1A314D',
+  activityIndicator: '#FFF',
+  activityIndicatorBackground: '#000000b0',
 
   // text colors
-  textMuted: '#80847A',
+  text: '#030303',
+  textMuted: '#A0A1A2',
 
-  textDefaultShadow: '#1A314D',
-  textDefault: '#2B425E',
-  textDefaultLighten: '#435770',
-
-  inputText: '#2B425E',
+  inputText: '#030303',
   inputTextDisabled: '#AAA',
   inputTextBackground: '#FFF',
-  inputTextBorder: '#DDD',
+  inputTextBorder: '#EBECED',
 
   // component colors
   navigationBackground: '#363636',
-  navigationShadow: '#b93400',
   navigationText: '#FFF',
 
   // drawer colors
@@ -49,34 +43,10 @@ const Colors = {
   drawerTextMuted: '#80847A',
   drawerTextMutedHighlight: '#EAEAEA',
 
-  // breedcrumb
-  breedCrumbBackground: '#DEE2E5',
-  breedCrumbBorder: '#BCC0C3',
-  breedCrumbText: '#1A314D',
-  breedCrumbTextMuted: '#80847A',
-
-  // menuItem
-  menuItemBackground: '#FFF',
-  menuItemBorder: '#DDD',
-  menuItemText: '#1A314D',
-  menuItemTextMuted: '#80847A',
-
-  menuItembBackgroundHighlight: '#DEE2E5',
-  menuItemBorderHighlight: '#BCC0C3',
-  menuItemTextHighlight: '#1A314D',
-  menuItemTextMutedHighlight: '#80847A',
-
-  // section
-  sectionBackground: '#FFF',
-
   // barChart
   chartAxis: '#34495E',
   chartLine: '#2980B9',
   chartGrid: '#888',
-
-  // Score Card
-  scoreCardBackground: '#FFF',
-  scoreCardBorder: '#DDD',
 
   scoreCardDateBackgroundHighlight: '#34495E',
   scoreCardDateBackground: '#94a6be',
@@ -85,6 +55,9 @@ const Colors = {
   // Ball Color
   ballText: '#FFF',
   ballBackground: '#94a6be',
+
+  disabledBallText: '#FFF',
+  disabledBallBackground: '#7A7B7C',
 
   todayBallBackground: '#34495E',
   todayBallText: '#FFF',

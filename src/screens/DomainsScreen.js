@@ -6,10 +6,10 @@ import {
   Metrics, Styles
 } from '../theme';
 import Api from '../apis';
-
+import { setSplashing } from '../actions/global';
 import DomainItem from '../components/DomainItem';
 import NavigationTitle from '../components/NavigationTitle';
-import NavigationButton from '../components/NavigationButton';
+// import NavigationButton from '../components/NavigationButton';
 
 const styles = {
   list: {
@@ -25,9 +25,25 @@ const styles = {
 
 class DomainsScreen extends Component {
   static navigationOptions = ({
-    headerLeft: <NavigationButton icon="bars" />,
     headerTitle: <NavigationTitle text="Loterias" />
   })
+
+  async componentWillMount() {
+    const domainSaved = await Api.loadDomain();
+    if (domainSaved) {
+      const { config } = this.props.global;
+      const { domains } = config;
+      for (let i = 0; i < domains.length; i++) {
+        const domain = domains[i];
+        if (domain.country === domainSaved.country) {
+          this.props.navigation.navigate('companies', { domain });
+          break;
+        }
+      }
+    } else {
+      this.props.setSplashing(false);
+    }
+  }
 
   async handleDomainItemPress(domain) {
     await Api.saveDomain(domain);
@@ -60,7 +76,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  dispatch
+  dispatch,
+  setSplashing: splashing => dispatch(setSplashing(splashing))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DomainsScreen);

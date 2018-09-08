@@ -23,6 +23,7 @@ const Api = {
     try {
       if (domain) {
         const domainString = JSON.stringify(domain);
+        console.log(domainString);
         await StorageApi.save(FIELDS.DOMAIN, domainString);
       } else {
         await StorageApi.remove(FIELDS.DOMAIN);
@@ -34,7 +35,7 @@ const Api = {
 
   async loadDomain() {
     try {
-      const domainString = await StorageApi.save(FIELDS.DOMAIN);
+      const domainString = await StorageApi.load(FIELDS.DOMAIN);
       if (domainString) {
         const domain = JSON.parse(domainString);
         return domain;

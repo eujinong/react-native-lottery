@@ -12,6 +12,7 @@ import SplashScreen from './SplashScreen';
 import DomainsScreen from './DomainsScreen';
 import CompaniesScreen from './CompaniesScreen';
 import CompanyScreen from './CompanyScreen';
+import GameScreen from './GameScreen';
 
 const { Banner, AdRequest } = firebase.admob;
 const request = new AdRequest();
@@ -25,6 +26,9 @@ const MainNavigator = StackNavigator({
   },
   company: {
     screen: CompanyScreen
+  },
+  game: {
+    screen: GameScreen
   }
 }, {
   navigationOptions: {
@@ -37,7 +41,7 @@ class Index extends Component {
     super(props);
 
     this.state = {
-      splashing: true
+      isLoaded: false
     };
   }
 
@@ -46,9 +50,9 @@ class Index extends Component {
     this.props.setConfig(config);
     setTimeout(() => {
       this.setState({
-        splashing: false
+        isLoaded: true
       });
-    }, 1000);
+    }, 100);
   }
 
   renderMain() {
@@ -58,20 +62,24 @@ class Index extends Component {
         <Banner
           unitId="ca-app-pub-3940256099942544/2934735716"
           request={request.build()}
-          onAdLoaded={() => {
-            console.log('Advert loaded');
-          }}
+          onAdLoaded={() => {}}
         />
       </View>
     );
   }
 
   render() {
-    const { splashing } = this.state;
+    const { isLoaded } = this.state;
+    const { splashing } = this.props.global;
     return (
       <View style={Styles.container}>
+        {isLoaded && this.renderMain()}
         {
-          splashing ? <SplashScreen /> : this.renderMain()
+          splashing && (
+            <View style={Styles.fill}>
+              <SplashScreen />
+            </View>
+          )
         }
       </View>
     );

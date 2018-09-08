@@ -7,6 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "immutable": "^3.8.2",
     "moment": "^2.22.2",
     "react": "16.4.1",
@@ -18,6 +19,7 @@
     "react-native-htmlview": "^0.13.0",
     "react-native-i18n": "^2.0.15",
     "react-native-linear-gradient": "^2.4.2",
+    "react-native-pathjs-charts": "^0.0.34",
     "react-native-splash-screen": "^3.1.1",
     "react-native-vector-icons": "^5.0.0",
     "react-navigation": "^2.11.2",

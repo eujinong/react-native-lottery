@@ -15,7 +15,7 @@ import Separator from '../components/Separator';
 
 const styles = {
   container: {
-    padding: Metrics.padding.small
+    paddingHorizontal: Metrics.padding.small
   }
 };
 
@@ -31,7 +31,6 @@ class CompanyScreen extends Component {
 
   constructor(props) {
     super(props);
-    console.log(props);
     const {
       domain, company
     } = this.props.navigation.state.params;
@@ -81,8 +80,6 @@ class CompanyScreen extends Component {
         }
       }
     }
-
-    console.log(games);
 
     const data = {
       info: item,

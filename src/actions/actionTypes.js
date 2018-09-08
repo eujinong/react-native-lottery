@@ -5,4 +5,5 @@ export default createTypes(`
   SET_GAME_PARAMS
   SET_CONFIG
   SET_COMPANIES
+  SET_SPLASHING
 `);

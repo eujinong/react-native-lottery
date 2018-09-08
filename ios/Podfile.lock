@@ -1,5 +1,7 @@
 PODS:
   - boost-for-react-native (1.63.0)
+  - BVLinearGradient (2.4.2):
+    - React
   - DoubleConversion (1.1.5)
   - Firebase/AdMob (5.2.0):
     - Firebase/Core
@@ -83,11 +85,14 @@ PODS:
     - React/RCTBlob
   - RNI18n (2.0.15):
     - React
+  - RNSVG (5.5.1):
+    - React
   - RNVectorIcons (5.0.0):
     - React
   - yoga (0.56.0.React)
 
 DEPENDENCIES:
+  - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - Firebase/AdMob
   - Firebase/Core
@@ -109,6 +114,7 @@ DEPENDENCIES:
   - React/RCTVibration (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
   - RNI18n (from `../node_modules/react-native-i18n`)
+  - RNSVG (from `../node_modules/react-native-svg`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -124,6 +130,8 @@ SPEC REPOS:
     - nanopb
 
 EXTERNAL SOURCES:
+  BVLinearGradient:
+    :path: "../node_modules/react-native-linear-gradient"
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   Folly:
@@ -134,6 +142,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native"
   RNI18n:
     :path: "../node_modules/react-native-i18n"
+  RNSVG:
+    :path: "../node_modules/react-native-svg"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
   yoga:
@@ -141,6 +151,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  BVLinearGradient: 6d8909e3fc6b089defa4b89d967441fa6827a2ee
   DoubleConversion: a9706f16e388b53ff12cca34473428ee29746a26
   Firebase: 25ed0412036d7d008568d1fb4d2e9d81ea8a0a2c
   FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
@@ -153,9 +164,10 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
   RNI18n: 46b8694063fbd699f2c06a4dc8e835b3176763b1
+  RNSVG: 6de4fb571bf91b9c67910a8d641532349bddf90a
   RNVectorIcons: c0dbfbf6068fefa240c37b0f71bd03b45dddac44
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: 135305c9634e4d2419b23f56450c65635128b343
+PODFILE CHECKSUM: 5564e1541de137041faf219dffc1821d7dc76f52
 
 COCOAPODS: 1.5.3

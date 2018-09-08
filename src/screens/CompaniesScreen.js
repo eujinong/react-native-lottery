@@ -6,7 +6,7 @@ import {
   Metrics, Styles
 } from '../theme';
 import Api from '../apis';
-import { setCompanies } from '../actions/global';
+import { setSplashing, setCompanies } from '../actions/global';
 import NavigationTitle from '../components/NavigationTitle';
 import NavigationButton from '../components/NavigationButton';
 import CompanyItem from '../components/CompanyItem';
@@ -52,6 +52,7 @@ class CompaniesScreen extends Component {
     });
     const companies = await Api.getCompanies(domain);
     this.props.setCompanies(companies);
+    this.props.setSplashing(false);
     this.setState({
       isLoading: false,
       companies
@@ -93,7 +94,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   dispatch,
-  setCompanies: companies => dispatch(setCompanies(companies))
+  setCompanies: companies => dispatch(setCompanies(companies)),
+  setSplashing: splashing => dispatch(setSplashing(splashing))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompaniesScreen);

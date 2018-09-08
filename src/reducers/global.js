@@ -8,7 +8,13 @@ import Types from '../actions/actionTypes';
 export const initialState = Immutable({
   config: {},
   rewardedCount: 0,
-  companies: []
+  companies: [],
+  splashing: true
+});
+
+const setSplashing = (state, action) => ({
+  ...state,
+  splashing: action.splashing
 });
 
 const setConfig = (state, action) => ({
@@ -27,6 +33,7 @@ const increaseRewarded = (state, action) => ({
 });
 
 const actionHandlers = {
+  [Types.SET_SPLASHING]: setSplashing,
   [Types.SET_CONFIG]: setConfig,
   [Types.SET_COMPANIES]: setCompanies,
   [Types.INCREASE_REWARDED]: increaseRewarded

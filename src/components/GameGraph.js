@@ -5,7 +5,7 @@ import BarChart from './BarChart';
 
 const styles = {
   container: {
-    paddingVertical: Metrics.padding.small,
+    paddingTop: Metrics.padding.small,
     backgroundColor: Colors.background
   }
 };

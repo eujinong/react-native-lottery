@@ -93,7 +93,6 @@ class GameScreen extends Component {
           )
         }
         {isLoading && <LoadingIndicator fill />}
-        
       </ScrollView>
     );
   }

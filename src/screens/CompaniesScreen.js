@@ -15,8 +15,9 @@ import LoadingIndicator from '../components/LoadingIndicator';
 const styles = {
   list: {
     flexDirection: 'row',
-    padding: Metrics.padding.tiny,
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    padding: Metrics.padding.tiny
   },
   listItem: {
     width: (Metrics.dimension.width) / 2 - Metrics.padding.tiny,

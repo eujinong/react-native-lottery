@@ -15,10 +15,12 @@ const styles = {
     fontSize: Fonts.size.h4
   },
   results: {
-
+    marginTop: Metrics.padding.tiny
   },
   row: {
-    flex: 'row'
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   date: {
     color: Colors.textMuted,
@@ -26,10 +28,16 @@ const styles = {
     fontSize: Fonts.size.h6
   },
   result: {
-    borderLeft: 1,
-    borderColor: Colors.textMuted
+    alignItems: 'center',
+    maxWidth: 240
+  },
+  step: {
+    color: Colors.textMuted,
+    fontSize: Fonts.size.h6,
+    paddingHorizontal: Metrics.padding.mini
   }
 };
+
 const GamePrevious = (props) => {
   const {
     data
@@ -39,10 +47,14 @@ const GamePrevious = (props) => {
     const item = data[i];
     const date = moment(item.date, 'YYYY-MM-DD').format('DD/MM');
     const renderResult = (
-      <View style={styles.row}>
-        <Text style={styles.date}>{date}</Text>
+      <View style={styles.row} key={`${i}`}>
+        <Text style={styles.date}>{`${date} | `}</Text>
         <View style={styles.result}>
-          <NumbersCircle number={item.score} key={`${i}`} recentlyUpdated={false} disabled size="small" />
+          {
+            item.score.map((numbers, index) => (
+              <NumbersCircle numbers={numbers} key={`${index}`} recentlyUpdated={false} disabled size="small" />
+            ))
+          }
         </View>
       </View>
     );

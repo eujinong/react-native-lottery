@@ -8,6 +8,7 @@ const RestApi = {
     if (queryString) {
       realURL = `${url}?${queryString}`;
     }
+    console.log(realURL);
     return fetch(realURL, {
       method: 'GET',
       headers: realHeaders

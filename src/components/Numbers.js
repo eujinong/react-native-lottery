@@ -102,8 +102,8 @@ export const NumbersCircle = (props) => {
   } = props;
   return (
     <View style={styles.numbers}>
-      {numbers.map((number, subindex) => (
-        <NumberCircle number={number} key={`${subindex}`} recentlyUpdated={recentlyUpdated} disabled={disabled} size={size} />
+      {numbers.map((number, index) => (
+        <NumberCircle number={number} key={`${index}`} recentlyUpdated={recentlyUpdated} disabled={disabled} size={size} />
       ))}
     </View>
   );

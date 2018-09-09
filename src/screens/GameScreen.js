@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 
 import {
@@ -18,6 +18,7 @@ import AppHelper from '../helpers/AppHelper';
 
 const styles = {
   container: {
+    width: '100%',
     paddingHorizontal: Metrics.padding.small
   }
 };
@@ -27,7 +28,7 @@ class GameScreen extends Component {
     const game = navigation.getParam('game', {});
     return {
       headerLeft: <NavigationButton icon="arrow-left" onPress={() => { navigation.goBack(); }} />,
-      headerTitle: <NavigationTitle text={game.title} logo={null} />,
+      headerTitle: <NavigationTitle text={game.info.title} logo={null} />,
       headerRight: <NavigationButton icon="globe" onPress={() => navigation.popToTop()} />
     };
   }
@@ -41,7 +42,8 @@ class GameScreen extends Component {
     this.state = {
       isLoading: true,
       domain,
-      game
+      game,
+      result: null
     };
   }
 
@@ -50,7 +52,7 @@ class GameScreen extends Component {
       isLoading: true
     });
     const { domain, game } = this.state;
-    const result = await Api.getGame(domain, { game_id: game.id });
+    const result = await Api.getGame(domain, { game_id: game.detail.game_id });
     this.setState({
       isLoading: false,
       result
@@ -70,16 +72,17 @@ class GameScreen extends Component {
 
   render() {
     const { game, result, isLoading } = this.state;
+    console.log(game);
     return (
-      <View style={[Styles.container, Styles.bg, styles.container]}>
+      <ScrollView style={[Styles.container, Styles.bg, styles.container]}>
         <GameItem data={game} onPress={this.handleGamePress.bind(this)} />
         {
-          (game && game.detail && game.detail.stats && game.detail.stats.length > 0) && (
+          (game && game.detail && game.detail.stats) ? (
             <View>
               <Separator />
               <GameGraph data={AppHelper.convertChartData(game.detail.stats)} />
             </View>
-          )
+          ) : null
         }
         {
           (result && result.sessions && result.sessions.length > 0) && (
@@ -90,7 +93,8 @@ class GameScreen extends Component {
           )
         }
         {isLoading && <LoadingIndicator fill />}
-      </View>
+        
+      </ScrollView>
     );
   }
 }

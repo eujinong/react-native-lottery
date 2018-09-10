@@ -1,4 +1,4 @@
-package com.loterias;
+package com.kiskoo.loterias.world;
 
 import android.app.Application;
 
@@ -6,6 +6,7 @@ import com.facebook.react.ReactApplication;
 import com.horcrux.svg.SvgPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import io.invertase.firebase.RNFirebasePackage;
+import io.invertase.firebase.admob.RNFirebaseAdMobPackage;
 import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
@@ -31,6 +32,7 @@ public class MainApplication extends Application implements ReactApplication {
             new SvgPackage(),
             new LinearGradientPackage(),
             new RNFirebasePackage(),
+            new RNFirebaseAdMobPackage(),
             new RNI18nPackage(),
             new VectorIconsPackage()
       );

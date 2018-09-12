@@ -19,6 +19,7 @@
     "react-native-htmlview": "^0.13.0",
     "react-native-i18n": "^2.0.15",
     "react-native-linear-gradient": "^2.4.2",
+    "react-native-modal-datetime-picker": "^6.0.0",
     "react-native-pathjs-charts": "^0.0.34",
     "react-native-splash-screen": "^3.1.1",
     "react-native-vector-icons": "^5.0.0",

@@ -4,24 +4,22 @@ import {
 } from 'react-native';
 
 import {
-  Colors, Fonts, Metrics, Images
+  Colors, Fonts, Metrics
 } from '../theme';
 
 const styles = {
   container: {
-    paddingTop: Metrics.padding.tiny,
-    paddingHorizontal: Metrics.padding.tiny,
     justifyContent: 'center',
     alignItems: 'center',
-    aspectRatio: 1,
-    borderWidth: 1,
-    borderRadius: 10,
-    borderColor: Colors.border
+    aspectRatio: 1.5,
+    borderWidth: 2,
+    borderRadius: 3,
+    borderColor: Colors.border1
   },
   image: {
-    borderRadius: 10,
-    width: 80,
-    height: 80
+    width: '100%',
+    height: '100%',
+    overflow: 'hidden'
   },
   content: {
     flex: 1,
@@ -30,8 +28,9 @@ const styles = {
   },
   text: {
     textAlign: 'center',
-    fontSize: Fonts.size.default,
-    color: Colors.text
+    fontSize: Fonts.size.h6,
+    color: Colors.text,
+    fontWeight: Fonts.weight.bold
   }
 };
 
@@ -42,10 +41,14 @@ const DomainItem = (props) => {
       style={styles.container}
       activeOpacity={Metrics.touchableOpacity}
       onPress={() => { props.onPress(data); }}>
-      <Image style={styles.image} resizeMode="cover" source={Images.splash} />
       <View style={styles.content}>
         <Text style={styles.text}>{data.country}</Text>
       </View>
+      {
+        data.image && (
+          <Image style={styles.image} resizeMode="cover" source={{ uri: data.image }} />
+        )
+      }
     </TouchableOpacity>
   );
 };

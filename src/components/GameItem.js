@@ -14,8 +14,9 @@ const styles = {
     paddingVertical: Metrics.padding.small
   },
   logo: {
-    width: 80,
-    height: 60
+    marginTop: -Metrics.padding.small,
+    width: 160,
+    height: 90
   },
   title: {
     fontSize: Fonts.size.default,

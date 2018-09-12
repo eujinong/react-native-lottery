@@ -24,7 +24,7 @@ class CompanyScreen extends Component {
     const company = navigation.getParam('company', {});
     return {
       headerLeft: <NavigationButton icon="arrow-left" onPress={() => { navigation.goBack(); }} />,
-      headerTitle: <NavigationTitle text={company.title} logo={{ url: company.logo }} />,
+      headerTitle: <NavigationTitle text={company.title} logo={company.logo ? { url: company.logo } : null} />,
       headerRight: <NavigationButton icon="globe" onPress={() => navigation.popToTop()} />
     };
   }
@@ -100,7 +100,6 @@ class CompanyScreen extends Component {
           keyExtractor={(item, index) => (`${index}`)}
           data={company.games}
           renderItem={this.renderItem.bind(this)}
-          refreshing={isLoading}
           ItemSeparatorComponent={() => <Separator />}
         />
         {isLoading && <LoadingIndicator fill />}

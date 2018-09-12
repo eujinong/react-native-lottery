@@ -8,6 +8,7 @@ const Colors = {
 
   // DomainItem
   border: '#EBECED',
+  border1: '#414042',
 
   // caret color
   caret: '#00d800',
@@ -53,23 +54,29 @@ const Colors = {
   scoreCardDateText: '#FFF',
 
   // Ball Color
-  ballText: '#FFF',
-  ballBackground: '#94a6be',
+  ballText: '#666666',
+  ballBackground: '#EDF1F3',
+  ballBackground1: '#DFE4E9',
 
   disabledBallText: '#FFF',
   disabledBallBackground: '#7A7B7C',
+  disabledBallBackground1: '#7A7B7C',
 
-  todayBallBackground: '#34495E',
   todayBallText: '#FFF',
+  todayBallBackground: '#A0D351',
+  todayBallBackground1: '#80BD29',
 
   bonusBallText: '#FFF',
   bonusBallBackground: '#05bfec',
+  bonusBallBackground1: '#009fcc',
 
   matchBallText: '#FFF',
   matchBallBackground: '#ED412D',
+  matchBallBackground1: '#BD210D',
 
   wrongBallText: '#FFF',
   wrongBallBackground: '#4285F4',
+  wrongBallBackground1: '#2265d4',
 
   // table
   tableHeaderBackground: '#ECEFF1',

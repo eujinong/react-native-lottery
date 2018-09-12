@@ -1,6 +1,10 @@
 import { Dimensions } from 'react-native';
 
-const dimension = Dimensions.get('window');
+const window = Dimensions.get('window');
+const dimension = {
+  width: window.width < window.height ? window.width : window.height,
+  height: window.width < window.height ? window.height : window.width
+};
 
 const Metrics = {
   touchableOpacity: 0.8,

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 import {
   Metrics, Styles
@@ -9,6 +10,7 @@ import Api from '../apis';
 // import { setCompanies } from '../actions/global';
 import NavigationTitle from '../components/NavigationTitle';
 import NavigationButton from '../components/NavigationButton';
+import GameSearchBar from '../components/GameSearchBar';
 import GameItem from '../components/GameItem';
 import GamePrevious from '../components/GamePrevious';
 import GameGraph from '../components/GameGraph';
@@ -43,20 +45,13 @@ class GameScreen extends Component {
       isLoading: true,
       domain,
       game,
-      result: null
+      result: null,
+      date: null
     };
   }
 
-  async componentDidMount() {
-    this.setState({
-      isLoading: true
-    });
-    const { domain, game } = this.state;
-    const result = await Api.getGame(domain, { game_id: game.detail.game_id });
-    this.setState({
-      isLoading: false,
-      result
-    });
+  componentDidMount() {
+    this.handleRefresh();
   }
 
   handleGamePress(game) {
@@ -70,9 +65,44 @@ class GameScreen extends Component {
     });
   }
 
+  handleChangeDate(date) {
+    this.setState({
+      date
+    });
+    const {
+      domain, game
+    } = this.state;
+    this.searchResult(domain, game, date);
+  }
+
+  handleRefresh() {
+    const {
+      domain, game, date
+    } = this.state;
+    this.searchResult(domain, game, date);
+  }
+
+  async searchResult(domain, game, date) {
+    this.setState({
+      isLoading: true
+    });
+    console.log(game);
+    const params = {
+      game_id: game.info.id
+    };
+    if (date) {
+      params.date = moment(date).format('YYYY-MM-DD');
+    }
+
+    const result = await Api.getGame(domain, params);
+    this.setState({
+      isLoading: false,
+      result
+    });
+  }
+
   render() {
     const { game, result, isLoading } = this.state;
-    console.log(game);
     return (
       <ScrollView style={[Styles.container, Styles.bg, styles.container]}>
         <GameItem data={game} onPress={this.handleGamePress.bind(this)} />
@@ -84,6 +114,7 @@ class GameScreen extends Component {
             </View>
           ) : null
         }
+        <GameSearchBar onChangeDate={this.handleChangeDate.bind(this)} onRefresh={this.handleRefresh.bind(this)} />
         {
           (result && result.sessions && result.sessions.length > 0) && (
             <View>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
+import LinearGradient from 'react-native-linear-gradient';
 import { Colors, Metrics, Fonts } from '../theme';
 
 const styles = {
@@ -55,25 +56,32 @@ export const NumberCircle = (props) => {
   const res = str.replace('+', '').replace('=', '').replace('!', '').replace('?', '');
   let color;
   let backgroundColor;
+  let backgroundColor1;
 
   if (disabled) {
     color = Colors.disabledBallText;
     backgroundColor = Colors.disabledBallBackground;
+    backgroundColor1 = Colors.disabledBallBackground1;
   } else if (number.indexOf('=') === 0) {
     color = Colors.matchBallText;
     backgroundColor = Colors.matchBallBackground;
+    backgroundColor1 = Colors.matchBallBackground1;
   } else if (number.indexOf('!') === 0) {
     color = Colors.wrongBallText;
     backgroundColor = Colors.wrongBallBackground;
+    backgroundColor1 = Colors.wrongBallBackground1;
   } else if (number.indexOf('+') === 0) {
     color = Colors.bonusBallText;
     backgroundColor = Colors.bonusBallBackground;
+    backgroundColor1 = Colors.bonusBallBackground1;
   } else if (recentlyUpdated) {
     color = Colors.todayBallText;
     backgroundColor = Colors.todayBallBackground;
+    backgroundColor1 = Colors.todayBallBackground1;
   } else {
     color = Colors.ballText;
     backgroundColor = Colors.ballBackground;
+    backgroundColor1 = Colors.ballBackground1;
   }
 
   const ballStyles = styles[size];
@@ -85,9 +93,14 @@ export const NumberCircle = (props) => {
         ? (
           <Text style={[ballStyles.standardNumber, { backgroundColor, color }]}>{res}</Text>
         ) : (
-          <View style={[ballStyles.circleNumber, { backgroundColor }]}>
+          <LinearGradient
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            locations={[0, 0.5, 0.5, 1]}
+            style={[ballStyles.circleNumber]}
+            colors={[backgroundColor, backgroundColor, backgroundColor1, backgroundColor1]}>
             <Text style={[ballStyles.circleNumberText, { color }]}>{res}</Text>
-          </View>
+          </LinearGradient>
         )
   );
 };

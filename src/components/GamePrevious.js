@@ -6,7 +6,7 @@ import { NumbersCircle } from './Numbers';
 
 const styles = {
   container: {
-    paddingVertical: Metrics.padding.tiny
+    // paddingVertical: Metrics.padding.tiny
   },
   title: {
     textAlign: 'center',
@@ -62,7 +62,6 @@ const GamePrevious = (props) => {
   }
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Previous Result</Text>
       <View style={styles.results}>
         {renderResults}
       </View>

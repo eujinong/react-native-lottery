@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import DateTimePicker from 'react-native-modal-datetime-picker';
-import moment from 'moment';
+import I18n from 'react-native-i18n';
 
 import { Colors, Metrics, Fonts } from '../theme';
 
@@ -16,7 +16,7 @@ const styles = {
   text: {
     color: Colors.navigationText,
     flex: 1,
-    fontSize: Fonts.size.default,
+    fontSize: Fonts.size.h6,
     fontWeight: Fonts.weight.bold,
     textAlign: 'center'
   },
@@ -31,8 +31,8 @@ class GameSearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isDateTimePickerVisible: false,
-      date: props.date ? props.date : null
+      isDateTimePickerVisible: false
+      // date: props.date ? props.date : null
     };
   }
 
@@ -49,23 +49,22 @@ class GameSearchBar extends Component {
   }
 
   handleDatePicked(date) {
-    this.setState({
-      date
-    });
+    // this.setState({
+    //   date
+    // });
     this.props.onChangeDate(date);
     this.hideDateTimePicker();
   }
 
   render() {
     const {
-      date,
       isDateTimePickerVisible
     } = this.state;
 
     return (
       <View style={styles.container}>
         <Text style={styles.text}>
-          {date ? moment(date).format('DD-MM-YYYY') : ''}
+          <Text style={styles.title}>{I18n.t('previous_result')}</Text>
         </Text>
         <TouchableOpacity onPress={this.showDateTimePicker.bind(this)}>
           <Icon name="calendar-alt" style={styles.icon} />

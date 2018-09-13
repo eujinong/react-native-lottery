@@ -5,8 +5,10 @@ import { connect } from 'react-redux';
 import {
   Metrics, Styles
 } from '../theme';
+
 import Api from '../apis';
 import { setSplashing, setCompanies } from '../actions/global';
+
 import NavigationTitle from '../components/NavigationTitle';
 import NavigationButton from '../components/NavigationButton';
 import CompanyItem from '../components/CompanyItem';
@@ -30,7 +32,7 @@ class CompaniesScreen extends Component {
     const domain = navigation.getParam('domain', {});
     return {
       headerLeft: <NavigationButton icon="arrow-left" onPress={() => { navigation.goBack(); }} />,
-      headerTitle: <NavigationTitle text={domain.country} />,
+      headerTitle: <NavigationTitle text={domain.country} logo={null} />,
       headerRight: <NavigationButton icon="globe" onPress={() => navigation.popToTop()} />
     };
   }

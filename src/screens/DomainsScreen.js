@@ -26,7 +26,7 @@ const styles = {
 
 class DomainsScreen extends Component {
   static navigationOptions = ({
-    headerTitle: <NavigationTitle text="Loterias" />
+    headerTitle: <NavigationTitle aspectRatio={4} />
   })
 
   async componentWillMount() {

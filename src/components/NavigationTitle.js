@@ -10,8 +10,6 @@ const styles = {
     justifyContent: 'center'
   },
   image: {
-    width: 50,
-    height: 30,
     marginRight: 10
   },
   text: {
@@ -22,19 +20,23 @@ const styles = {
 };
 
 const NavigationTitle = (props) => {
-  const { text, logo } = props;
+  const { text, logo, logoAspectRatio } = props;
+  const logoStyle = {
+    width: logoAspectRatio * 60,
+    height: 60
+  };
+
   return (
     <View style={styles.container}>
-      {
-        logo && <Image style={styles.image} source={logo} resizeMode="contain" />
-      }
-      <Text style={styles.text}>{text}</Text>
+      {logo && <Image style={[styles.image, logoStyle]} source={logo} resizeMode="contain" />}
+      {text && <Text style={styles.text}>{text}</Text>}
     </View>
   );
 };
 
 NavigationTitle.defaultProps = {
-  logo: Images.logo
+  logo: Images.logo,
+  logoAspectRatio: 2
 };
 
 export default NavigationTitle;

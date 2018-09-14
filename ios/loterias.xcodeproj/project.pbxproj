@@ -42,6 +42,7 @@
 		41B69BA9669C4E5FB4351798 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DB3AB2186704C3BBD0EC9ED /* FontAwesome5_Solid.ttf */; };
 		4B0C6308A55F4696A61887FD /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57EBBD55D8D7462F9289D75D /* Ionicons.ttf */; };
 		4FEDE8EE0C194792A612C04C /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1DFDAA4A414B43AB97A9FD37 /* MaterialCommunityIcons.ttf */; };
+		54813E4B214B2C6B00DBDE62 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 54813E24214B2C6B00DBDE62 /* splash.png */; };
 		54C9EC972140738800E102F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54C9EC962140738800E102F7 /* GoogleService-Info.plist */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		6EBADB039FB74589A10F2940 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0C98575EF3D4A0BBA253011 /* FontAwesome.ttf */; };
@@ -370,6 +371,7 @@
 		37376FB1E32E4B9EA1E23B7A /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		3DB3AB2186704C3BBD0EC9ED /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		545157FF810FE8CCB3FFFC43 /* libPods-loterias.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-loterias.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54813E24214B2C6B00DBDE62 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash.png; path = ../assets/images/splash.png; sourceTree = "<group>"; };
 		54C9EC962140738800E102F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "loterias/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		57EBBD55D8D7462F9289D75D /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
@@ -508,6 +510,7 @@
 		06087F3F41684C5786365726 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				54813E24214B2C6B00DBDE62 /* splash.png */,
 				37376FB1E32E4B9EA1E23B7A /* Entypo.ttf */,
 				DC3B6E7D1D714053BDA4A84C /* EvilIcons.ttf */,
 				FE524A48FA9749DEAD1C5024 /* Feather.ttf */,
@@ -1178,6 +1181,7 @@
 				98CFB193C84C49C7975778AF /* MaterialIcons.ttf in Resources */,
 				E97FB081C1A342529E187537 /* Octicons.ttf in Resources */,
 				8F8D1E1E63B549AFAF1EE62A /* SimpleLineIcons.ttf in Resources */,
+				54813E4B214B2C6B00DBDE62 /* splash.png in Resources */,
 				B5D6675A7D7D48DBB195C987 /* Zocial.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

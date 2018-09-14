@@ -3,12 +3,13 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 import firebase from 'react-native-firebase';
 import { StackNavigator } from 'react-navigation';
+import SplashScreen from 'react-native-splash-screen';
 
 
 import { Styles } from '../theme';
 import Api from '../apis';
 import { setConfig } from '../actions/global';
-import SplashScreen from './SplashScreen';
+import Splash from './SplashScreen';
 import DomainsScreen from './DomainsScreen';
 import CompaniesScreen from './CompaniesScreen';
 import CompanyScreen from './CompanyScreen';
@@ -46,6 +47,7 @@ class Index extends Component {
   }
 
   async componentDidMount() {
+    SplashScreen.hide();
     const config = await Api.getConfig();
     this.props.setConfig(config);
     setTimeout(() => {
@@ -77,7 +79,7 @@ class Index extends Component {
         {
           splashing && (
             <View style={Styles.fill}>
-              <SplashScreen />
+              <Splash />
             </View>
           )
         }

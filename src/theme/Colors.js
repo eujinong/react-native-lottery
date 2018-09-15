@@ -23,6 +23,7 @@ const Colors = {
 
   // text colors
   text: '#030303',
+  textGray: '#505050',
   textMuted: '#A0A1A2',
 
   inputText: '#030303',
@@ -45,8 +46,8 @@ const Colors = {
   drawerTextMutedHighlight: '#EAEAEA',
 
   // barChart
-  chartAxis: '#34495E',
-  chartLine: '#2980B9',
+  chartAxis: '#363636',
+  chartLine: '#7A7B7C',
   chartGrid: '#888',
 
   scoreCardDateBackgroundHighlight: '#34495E',
@@ -67,8 +68,8 @@ const Colors = {
   todayBallBackground1: '#80BD29',
 
   bonusBallText: '#FFF',
-  bonusBallBackground: '#05bfec',
-  bonusBallBackground1: '#009fcc',
+  bonusBallBackground: '#464646',
+  bonusBallBackground1: '#262626',
 
   matchBallText: '#FFF',
   matchBallBackground: '#ED412D',

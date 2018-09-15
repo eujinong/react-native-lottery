@@ -14,7 +14,7 @@ import NavigationTitle from '../components/NavigationTitle';
 const styles = {
   list: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     flexWrap: 'wrap',
     padding: Metrics.padding.tiny
   },

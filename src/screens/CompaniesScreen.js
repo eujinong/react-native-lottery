@@ -18,7 +18,7 @@ const styles = {
   list: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     padding: Metrics.padding.tiny
   },
   listItem: {

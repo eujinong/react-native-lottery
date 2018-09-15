@@ -25,8 +25,8 @@ const styles = {
     marginBottom: Metrics.padding.tiny
   },
   reference: {
-    color: Colors.text,
-    fontSize: Fonts.size.h4,
+    color: Colors.textGray,
+    fontSize: Fonts.size.h5,
     fontWeight: Fonts.weight.bold,
     marginTop: Metrics.padding.tiny
   },

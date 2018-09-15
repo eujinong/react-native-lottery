@@ -6,6 +6,7 @@ import {
   Metrics, Styles
 } from '../theme';
 import Api from '../apis';
+import CONFIG from '../config';
 import { setCompanies } from '../actions/global';
 import NavigationTitle from '../components/NavigationTitle';
 import NavigationButton from '../components/NavigationButton';
@@ -24,7 +25,7 @@ class CompanyScreen extends Component {
     const company = navigation.getParam('company', {});
     return {
       headerLeft: <NavigationButton icon="arrow-left" onPress={() => { navigation.goBack(); }} />,
-      headerTitle: <NavigationTitle text={company.title} logo={company.logo ? { url: company.logo } : null} />,
+      headerTitle: <NavigationTitle text={company.title} logo={null} />,
       headerRight: <NavigationButton icon="globe" onPress={() => navigation.popToTop()} />
     };
   }
@@ -41,6 +42,8 @@ class CompanyScreen extends Component {
       company,
       games: []
     };
+    this.unmounted = false;
+    this.timerRefreshGame = null;
   }
 
   async componentDidMount() {
@@ -51,6 +54,32 @@ class CompanyScreen extends Component {
     const games = await Api.getCompanyGames(domain, { company_id: company.id });
     this.setState({
       isLoading: false,
+      games
+    });
+    this.setIntervalGame();
+  }
+
+  componentWillUnmount() {
+    this.unmounted = true;
+    this.clearIntervalGame();
+  }
+
+  setIntervalGame() {
+    this.clearIntervalGame();
+    this.timerRefreshGame = setInterval(this.handleTimerRefreshGame.bind(this), CONFIG.SETTINGS.REFRESH_INTERVAL);
+  }
+
+  clearIntervalGame() {
+    if (this.timerRefreshGame) {
+      clearInterval(this.handleTimerRefreshGame);
+      this.timerRefreshGame = null;
+    }
+  }
+
+  async handleTimerRefreshGame() {
+    const { domain, company } = this.state;
+    const games = await Api.getCompanyGames(domain, { company_id: company.id });
+    this.setState({
       games
     });
   }

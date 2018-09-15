@@ -15,16 +15,17 @@ const styles = {
       justifyContent: 'center',
       alignItems: 'center',
       margin: Metrics.padding.tiny * 0.3,
-      width: Fonts.size.default * 2,
-      height: Fonts.size.default * 2,
-      borderRadius: Fonts.size.default
+      width: Fonts.size.h5 * 2,
+      height: Fonts.size.h5 * 2,
+      borderRadius: Fonts.size.h5
     },
     circleNumberText: {
-      fontSize: Fonts.size.default
+      fontSize: Fonts.size.h6
     },
     standardNumber: {
       marginRight: Metrics.padding.tiny,
-      padding: Metrics.padding.tiny * 0.5,
+      fontSize: Fonts.size.h6,
+      padding: Metrics.padding.tiny * 0.8,
       margin: Metrics.padding.tiny * 0.3
     }
   },
@@ -33,12 +34,12 @@ const styles = {
       justifyContent: 'center',
       alignItems: 'center',
       margin: Metrics.padding.mini * 0.4,
-      width: Fonts.size.small * 2,
-      height: Fonts.size.small * 2,
-      borderRadius: Fonts.size.small
+      width: Fonts.size.default * 2,
+      height: Fonts.size.default * 2,
+      borderRadius: Fonts.size.default
     },
     circleNumberText: {
-      fontSize: Fonts.size.small
+      fontSize: Fonts.size.default
     },
     standardNumber: {
       marginRight: Metrics.padding.tiny * 0.8,

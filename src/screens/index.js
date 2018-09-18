@@ -17,6 +17,7 @@ import GameScreen from './GameScreen';
 
 const { Banner, AdRequest } = firebase.admob;
 const request = new AdRequest();
+request.addKeyword('foobar');
 
 const MainNavigator = StackNavigator({
   domains: {
@@ -64,7 +65,9 @@ class Index extends Component {
         <Banner
           unitId="ca-app-pub-3940256099942544/2934735716"
           request={request.build()}
-          onAdLoaded={() => {}}
+          onAdLoaded={() => {
+            console.log('Advert loaded');
+          }}
         />
       </View>
     );

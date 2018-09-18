@@ -1,9 +1,13 @@
 import moment from 'moment';
+import CONFIG from '../config';
+
+const { SETTINGS } = CONFIG;
 
 const AppHelper = {
   isRecentlyUpdated(updated_at) {
     const todayDate = new Date();
-    return updated_at.indexOf(moment(todayDate).format('DD-MM-YYYY')) === 0;
+    const date = new Date(todayDate - SETTINGS.DIFFERENCE_IN_MILISECONDS);
+    return updated_at.indexOf(moment(date).format('DD-MM-YYYY')) === 0;
   },
   convertChartData(stats) {
     const keys = Object.keys(stats);

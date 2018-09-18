@@ -31,7 +31,7 @@ const styles = {
     marginTop: Metrics.padding.tiny
   },
   date: {
-    fontSize: Fonts.size.h5,
+    fontSize: Fonts.size.h6,
     fontWeight: Fonts.weight.bold,
     color: Colors.textMuted,
     marginTop: Metrics.padding.tiny
@@ -50,23 +50,23 @@ const GameItem = (props) => {
   let renderScore = null;
   let renderReference = null;
 
-  const isRecentlyUpdated = AppHelper.isRecentlyUpdated(info.updated_at);
   if (detail) {
+    const recentlyUpdated = AppHelper.isRecentlyUpdated(detail.updated_at);
     if (detail.score) {
       if (info.mode === 'text') {
         renderScore = detail.score.map((item, index) => (
-          <NumbersStandard numbers={item} isRecentlyUpdated={isRecentlyUpdated} key={`${index}`} />
+          <NumbersStandard numbers={item} recentlyUpdated={recentlyUpdated} key={`${index}`} />
         ));
       } else {
         renderScore = detail.score.map((item, index) => (
-          <NumbersCircle numbers={item} isRecentlyUpdated={isRecentlyUpdated} key={`${index}`} />
+          <NumbersCircle numbers={item} recentlyUpdated={recentlyUpdated} key={`${index}`} />
         ));
       }
     }
 
     if (detail.reference) {
       if (detail.money) {
-        renderReference = (<Text style={styles.reference}>{`${detail.reference} ${detail.month}`}</Text>);
+        renderReference = (<Text style={styles.reference}>{`${detail.reference} ${detail.money}`}</Text>);
       } else {
         renderReference = (<Text style={styles.reference}>{detail.reference}</Text>);
       }
@@ -89,7 +89,7 @@ const GameItem = (props) => {
       }
       {renderScore}
       {renderReference}
-      <Text style={styles.date}>{info.updated_at}</Text>
+      <Text style={styles.date}>{detail ? detail.updated_at : info.updated_at}</Text>
     </TouchableOpacity>
   );
 };

@@ -41,12 +41,13 @@ const DomainItem = (props) => {
       style={styles.container}
       activeOpacity={Metrics.touchableOpacity}
       onPress={() => { props.onPress(data); }}>
-      <View style={styles.content}>
-        <Text style={styles.text}>{data.country}</Text>
-      </View>
       {
-        data.image && (
+        data.image ? (
           <Image style={styles.image} resizeMode="cover" source={{ uri: data.image }} />
+        ) : (
+          <View style={styles.content}>
+            <Text style={styles.text}>{data.country}</Text>
+          </View>
         )
       }
     </TouchableOpacity>

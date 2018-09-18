@@ -1,21 +1,81 @@
+import moment from 'moment';
+
 import CONFIG from '../config';
 import RestApi from './rest';
 import StorageApi from './storage';
 
-const { API_ENDPOINT, FIELDS } = CONFIG;
+const { API_ENDPOINT, FIELDS, SETTINGS } = CONFIG;
 
 const Api = {
+  getDecryptKey() {
+    let date = new Date();
+    date -= SETTINGS.DIFFERENCE_IN_MILISECONDS;
+    date = new Date(date);
+    let hours = date.getHours();
+    let nextHours = hours + 1;
+
+    hours %= 12;
+    nextHours %= 12;
+    hours = hours || 12;
+    nextHours = nextHours || 12;
+    return { key: `${hours}1`, keySecondary: `${nextHours}1` };
+  },
+
+  decrypt(key, encryption) {
+    let plaintext = '';
+    for (let i = 0, ni = encryption.length; i < ni; i++) {
+      const a = encryption.charCodeAt(i);
+      const b = (a ^ key);
+      plaintext += String.fromCharCode(b);
+    }
+    return plaintext;
+  },
+
+  addEncryptParams(params = {}) {
+    const localParams = params;
+    if (SETTINGS.ENCRYPT) {
+      localParams.encrypt = true;
+    }
+    return params;
+  },
+
+  parseData(data) {
+    if (SETTINGS.ENCRYPT) {
+      const { key, keySecondary } = Api.getDecryptKey();
+      try {
+        const ret = JSON.parse(Api.decrypt(key, data));
+        return ret;
+      } catch (e) {
+        console.log(e);
+        try {
+          const ret = JSON.parse(Api.decrypt(keySecondary, data));
+          return ret;
+        } catch (e) { console.log(e); }
+      }
+      return null;
+    }
+    return data;
+  },
+
   async getConfig() {
     const url = `${API_ENDPOINT}/config`;
     try {
       const res = await RestApi.get(url);
       if (res.status === 200) {
         const data = await res.text();
-        return JSON.parse(data);
+        const ret = JSON.parse(data);
+        const currentDatetime = new Date();
+        const datetime = moment(ret.datetime);
+        const differenceInMiliseconds = Math.floor((currentDatetime - datetime) / 1000) * 1000;
+
+        SETTINGS.DATETIME = ret.datetime;
+        SETTINGS.DATETIME_LOCAL = moment(currentDatetime).format('YYYY-MM-DD HH:mm:ss');
+        SETTINGS.DIFFERENCE_IN_MILISECONDS = differenceInMiliseconds;
+        return ret;
       }
-      return [];
+      return {};
     } catch (error) {
-      console.log(error); return [];
+      console.log(error); return {};
     }
   },
 
@@ -48,12 +108,12 @@ const Api = {
 
   async getCompanies(domain) {
     const url = `${domain.endpoint}/companies`;
-    console.log(url);
+    const params = Api.addEncryptParams();
     try {
-      const res = await RestApi.get(url);
+      const res = await RestApi.get(url, params);
       if (res.status === 200) {
-        const data = await res.text();
-        return JSON.parse(data);
+        const data = await res.json();
+        return Api.parseData(data);
       }
       return null;
     } catch (error) {
@@ -63,11 +123,12 @@ const Api = {
 
   async getGame(domain, params) {
     const url = `${domain.endpoint}/sessions`;
+    const localParams = Api.addEncryptParams(params);
     try {
-      const res = await RestApi.get(url, params);
+      const res = await RestApi.get(url, localParams);
       if (res.status === 200) {
-        const data = await res.text();
-        return JSON.parse(data);
+        const data = await res.json();
+        return Api.parseData(data);
       }
       return null;
     } catch (error) {
@@ -78,11 +139,12 @@ const Api = {
 
   async getCompanyGames(domain, params) {
     const url = `${domain.endpoint}/company-sessions`;
+    const localParams = Api.addEncryptParams(params);
     try {
-      const res = await RestApi.get(url, params);
+      const res = await RestApi.get(url, localParams);
       if (res.status === 200) {
-        const data = await res.text();
-        return JSON.parse(data);
+        const data = await res.json();
+        return Api.parseData(data);
       }
       return [];
     } catch (error) {
@@ -96,8 +158,8 @@ const Api = {
     try {
       const res = await RestApi.get(url);
       if (res.status === 200) {
-        const data = await res.text();
-        return JSON.stringify(data);
+        const data = await res.json();
+        return Api.parseData(data);
       }
       return null;
     } catch (error) {
@@ -111,8 +173,8 @@ const Api = {
     try {
       const res = await RestApi.get(url);
       if (res.status === 200) {
-        const data = await res.text();
-        return JSON.stringify(data);
+        const data = await res.json();
+        return Api.parseData(data);
       }
       return null;
     } catch (error) {

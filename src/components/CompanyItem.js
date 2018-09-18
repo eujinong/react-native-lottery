@@ -41,11 +41,14 @@ const CompanyItem = (props) => {
       style={styles.container}
       activeOpacity={Metrics.touchableOpacity}
       onPress={() => { props.onPress(data); }}>
-      <View style={styles.content}>
-        <Text style={styles.text}>{data.title}</Text>
-      </View>
       {
-        data.logo && <Image style={styles.image} resizeMode="cover" source={{ uri: data.logo }} />
+        data.logo ? (
+          <Image style={styles.image} resizeMode="cover" source={{ uri: data.logo }} />
+        ) : (
+          <View style={styles.content}>
+            <Text style={styles.text}>{data.title}</Text>
+          </View>
+        )
       }
     </TouchableOpacity>
   );

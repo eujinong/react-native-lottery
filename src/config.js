@@ -23,7 +23,9 @@ const config = {
   },
 
   SETTINGS: {
-    REFRESH_INTERVAL: 18000
+    ENCRYPT: true,
+    REFRESH_INTERVAL: 18000,
+    DIFFERENCE_IN_MILISECONDS: 0
   },
 
   VARIABLES: {

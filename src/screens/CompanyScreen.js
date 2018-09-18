@@ -7,7 +7,7 @@ import {
 } from '../theme';
 import Api from '../apis';
 import CONFIG from '../config';
-import { setCompanies } from '../actions/global';
+import { setGames } from '../actions/global';
 import NavigationTitle from '../components/NavigationTitle';
 import NavigationButton from '../components/NavigationButton';
 import GameItem from '../components/GameItem';
@@ -50,11 +50,9 @@ class CompanyScreen extends Component {
     this.setState({
       isLoading: true
     });
-    const { domain, company } = this.state;
-    const games = await Api.getCompanyGames(domain, { company_id: company.id });
+    await this.handleTimerRefreshGame();
     this.setState({
-      isLoading: false,
-      games
+      isLoading: false
     });
     this.setIntervalGame();
   }
@@ -77,10 +75,24 @@ class CompanyScreen extends Component {
   }
 
   async handleTimerRefreshGame() {
+    if (this.unmounted) {
+      this.clearIntervalGame();
+      return;
+    }
+
+    this.setState({
+      isLoading: true
+    });
+
     const { domain, company } = this.state;
     const games = await Api.getCompanyGames(domain, { company_id: company.id });
+    this.props.setGames(games);
     this.setState({
       games
+    });
+
+    this.setState({
+      isLoading: false
     });
   }
 
@@ -143,7 +155,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   dispatch,
-  setCompanies: companies => dispatch(setCompanies(companies))
+  setGames: games => dispatch(setGames(games))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompanyScreen);

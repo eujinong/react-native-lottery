@@ -54,6 +54,23 @@ class GameScreen extends Component {
     this.handleRefresh();
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { global } = nextProps;
+    const { game } = this.state;
+    if (global.games && global.games.length > 0) {
+      const { games } = global;
+      for (let i = 0, ni = games.length; i < ni; i++) {
+        const itemGame = games[i];
+        if (itemGame.game_id === game.game_id && itemGame !== game) {
+          this.setState({
+            game: itemGame
+          });
+          break;
+        }
+      }
+    }
+  }
+
   handleGamePress(game) {
     const {
       domain
@@ -86,7 +103,6 @@ class GameScreen extends Component {
     this.setState({
       isLoading: true
     });
-    console.log(game);
     const params = {
       game_id: game.info.id
     };

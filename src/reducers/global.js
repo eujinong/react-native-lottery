@@ -9,6 +9,7 @@ export const initialState = Immutable({
   config: {},
   rewardedCount: 0,
   companies: [],
+  games: [],
   splashing: true
 });
 
@@ -27,6 +28,11 @@ const setCompanies = (state, action) => ({
   companies: action.companies
 });
 
+const setGames = (state, action) => ({
+  ...state,
+  games: action.games
+});
+
 const increaseRewarded = (state, action) => ({
   ...state,
   rewardedCount: action.initialize ? 0 : state.rewardedCount + 1
@@ -36,6 +42,7 @@ const actionHandlers = {
   [Types.SET_SPLASHING]: setSplashing,
   [Types.SET_CONFIG]: setConfig,
   [Types.SET_COMPANIES]: setCompanies,
+  [Types.SET_GAMES]: setGames,
   [Types.INCREASE_REWARDED]: increaseRewarded
 };
 

@@ -28,6 +28,7 @@ const Api = {
       const b = (a ^ key);
       plaintext += String.fromCharCode(b);
     }
+    console.log(key, plaintext);
     return plaintext;
   },
 

@@ -1,12 +1,12 @@
 import moment from 'moment';
-import CONFIG from '../config';
+// import CONFIG from '../config';
 
-const { SETTINGS } = CONFIG;
+// const { SETTINGS } = CONFIG;
 
 const AppHelper = {
   isRecentlyUpdated(updated_at) {
-    const todayDate = new Date();
-    const date = new Date(todayDate - SETTINGS.DIFFERENCE_IN_MILISECONDS);
+    const date = new Date();
+    // const date = new Date(todayDate - SETTINGS.DIFFERENCE_IN_MILISECONDS);
     return updated_at.indexOf(moment(date).format('DD-MM-YYYY')) === 0;
   },
   convertChartData(stats) {

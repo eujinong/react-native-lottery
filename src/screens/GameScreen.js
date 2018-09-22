@@ -71,17 +71,6 @@ class GameScreen extends Component {
     }
   }
 
-  handleGamePress(game) {
-    const {
-      domain
-    } = this.state;
-
-    this.props.navigation.navigate('game', {
-      domain,
-      game
-    });
-  }
-
   handleChangeDate(date) {
     this.setState({
       date
@@ -121,7 +110,7 @@ class GameScreen extends Component {
     const { game, result, isLoading } = this.state;
     return (
       <ScrollView style={[Styles.container, Styles.bg, styles.container]}>
-        <GameItem data={game} onPress={this.handleGamePress.bind(this)} />
+        <GameItem data={game} />
         {
           (game && game.detail && game.detail.stats) ? (
             <View>

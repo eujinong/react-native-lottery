@@ -12,7 +12,8 @@ const Api = {
       }
       return null;
     } catch (error) {
-      console.log(error); return null;
+      console.log(error);
+      return null;
     }
   },
 

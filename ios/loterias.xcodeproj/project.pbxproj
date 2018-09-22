@@ -1431,7 +1431,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kiskoo.loterias.world;
+				PRODUCT_BUNDLE_IDENTIFIER = lotomundo.com;
 				PRODUCT_NAME = loterias;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1455,7 +1455,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kiskoo.loterias.world;
+				PRODUCT_BUNDLE_IDENTIFIER = lotomundo.com;
 				PRODUCT_NAME = loterias;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

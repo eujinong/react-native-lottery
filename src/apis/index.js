@@ -28,7 +28,6 @@ const Api = {
       const b = (a ^ key);
       plaintext += String.fromCharCode(b);
     }
-    console.log(key, plaintext);
     return plaintext;
   },
 
@@ -76,7 +75,8 @@ const Api = {
       }
       return {};
     } catch (error) {
-      console.log(error); return {};
+      console.log(error);
+      return {};
     }
   },
 
@@ -84,7 +84,6 @@ const Api = {
     try {
       if (domain) {
         const domainString = JSON.stringify(domain);
-        console.log(domainString);
         await StorageApi.save(FIELDS.DOMAIN, domainString);
       } else {
         await StorageApi.remove(FIELDS.DOMAIN);
@@ -118,7 +117,8 @@ const Api = {
       }
       return null;
     } catch (error) {
-      console.log(error); return null;
+      console.log(error);
+      return null;
     }
   },
 

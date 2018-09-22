@@ -3,38 +3,40 @@
 <plist version="1.0">
 <dict>
 	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
-	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<string>ca-app-pub-1196303242456869/6805402848</string>
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>999440567942-guqmn2lmeg5ccka5n5vklgm5cfdn3lei.apps.googleusercontent.com</string>
+	<string>747734094288-11us9c40itgupf8fkthpae56cau2lkgk.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.999440567942-guqmn2lmeg5ccka5n5vklgm5cfdn3lei</string>
+	<string>com.googleusercontent.apps.747734094288-11us9c40itgupf8fkthpae56cau2lkgk</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBnAZ7_24WH-vcCYz1TPjsdPpctsC2QgXE</string>
+	<string>AIzaSyBDrHAVPaZL2BYBIZ2l-tV8uQzNCJIKGbE</string>
 	<key>GCM_SENDER_ID</key>
-	<string>999440567942</string>
+	<string>747734094288</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.kiskoo.loterias.world</string>
+	<string>lotomundo.com</string>
 	<key>PROJECT_ID</key>
-	<string>loterias-dominicanas</string>
+	<string>loto-mundo</string>
 	<key>STORAGE_BUCKET</key>
-	<string>loterias-dominicanas.appspot.com</string>
+	<string>loto-mundo.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:999440567942:ios:3e3fc7b44415c720</string>
+	<string>1:747734094288:ios:0708204ade02ab2b</string>
 	<key>DATABASE_URL</key>
-	<string>https://loterias-dominicanas.firebaseio.com</string>
+	<string>https://loto-mundo.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-1196303242456869~7071356100</string>
 </dict>
 </plist>

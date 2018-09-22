@@ -7,7 +7,7 @@ import {
 } from '../theme';
 
 import Api from '../apis';
-import { setSplashing, setCompanies } from '../actions/global';
+import { setSplashing, setCompanies, increaseRewarded } from '../actions/global';
 
 import NavigationTitle from '../components/NavigationTitle';
 import NavigationButton from '../components/NavigationButton';
@@ -67,6 +67,7 @@ class CompaniesScreen extends Component {
     this.props.navigation.navigate('company', {
       domain, company
     });
+    this.props.increaseRewarded(false);
   }
 
   render() {
@@ -98,7 +99,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   dispatch,
   setCompanies: companies => dispatch(setCompanies(companies)),
-  setSplashing: splashing => dispatch(setSplashing(splashing))
+  setSplashing: splashing => dispatch(setSplashing(splashing)),
+  increaseRewarded: initialize => dispatch(increaseRewarded(initialize))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompaniesScreen);

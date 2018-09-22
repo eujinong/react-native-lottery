@@ -7,7 +7,7 @@ import {
 } from '../theme';
 import Api from '../apis';
 import CONFIG from '../config';
-import { setGames } from '../actions/global';
+import { setGames, increaseRewarded } from '../actions/global';
 import NavigationTitle from '../components/NavigationTitle';
 import NavigationButton from '../components/NavigationButton';
 import GameItem from '../components/GameItem';
@@ -107,6 +107,7 @@ class CompanyScreen extends Component {
       company,
       game
     });
+    this.props.increaseRewarded(false);
   }
 
   renderItem({ item }) {
@@ -155,7 +156,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   dispatch,
-  setGames: games => dispatch(setGames(games))
+  setGames: games => dispatch(setGames(games)),
+  increaseRewarded: initialize => dispatch(increaseRewarded(initialize))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompanyScreen);

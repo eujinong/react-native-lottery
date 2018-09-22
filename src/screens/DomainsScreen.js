@@ -6,7 +6,7 @@ import {
   Metrics, Styles
 } from '../theme';
 import Api from '../apis';
-import { setSplashing } from '../actions/global';
+import { setSplashing, increaseRewarded } from '../actions/global';
 import DomainItem from '../components/DomainItem';
 import NavigationTitle from '../components/NavigationTitle';
 // import NavigationButton from '../components/NavigationButton';
@@ -49,6 +49,7 @@ class DomainsScreen extends Component {
   async handleDomainItemPress(domain) {
     await Api.saveDomain(domain);
     this.props.navigation.navigate('companies', { domain });
+    this.props.increaseRewarded(false);
   }
 
   render() {
@@ -78,7 +79,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   dispatch,
-  setSplashing: splashing => dispatch(setSplashing(splashing))
+  setSplashing: splashing => dispatch(setSplashing(splashing)),
+  increaseRewarded: initialize => dispatch(increaseRewarded(initialize))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DomainsScreen);

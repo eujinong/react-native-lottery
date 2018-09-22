@@ -1,6 +1,7 @@
 import Immutable from 'seamless-immutable';
 import { createReducer } from 'reduxsauce';
 import Types from '../actions/actionTypes';
+import CONFIG from '../config';
 
 // import I18n from 'react-native-i18n';
 // import _ from 'lodash';
@@ -35,7 +36,7 @@ const setGames = (state, action) => ({
 
 const increaseRewarded = (state, action) => ({
   ...state,
-  rewardedCount: action.initialize ? 0 : state.rewardedCount + 1
+  rewardedCount: action.initialize ? 0 : (state.rewardedCount + 1)
 });
 
 const actionHandlers = {

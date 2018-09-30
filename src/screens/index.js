@@ -92,6 +92,7 @@ class Index extends Component {
 
   showInterstitial() {
     if (this.interstitial && this.interstitial.isLoaded()) {
+      firebase.analytics().logEvent('interstitial', { showRewarded: true });
       this.interstitial.show();
     }
   }

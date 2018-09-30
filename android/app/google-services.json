@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "999440567942",
-    "firebase_url": "https://loterias-dominicanas.firebaseio.com",
-    "project_id": "loterias-dominicanas",
-    "storage_bucket": "loterias-dominicanas.appspot.com"
+    "project_number": "747734094288",
+    "firebase_url": "https://loto-mundo.firebaseio.com",
+    "project_id": "loto-mundo",
+    "storage_bucket": "loto-mundo.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:999440567942:android:3e3fc7b44415c720",
+        "mobilesdk_app_id": "1:747734094288:android:0708204ade02ab2b",
         "android_client_info": {
-          "package_name": "com.kiskoo.loterias.world"
+          "package_name": "lotomundo.com"
         }
       },
       "oauth_client": [
         {
-          "client_id": "999440567942-m189tmebfpld1fvpeb9evh96k6qq29kc.apps.googleusercontent.com",
+          "client_id": "747734094288-8m16g8nvjmdrkb5isjvocrq3js9rtb6g.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBCnh8O9EJAXNF29kSII20plJJbXL58ATQ"
+          "current_key": "AIzaSyByK8AoGXJacE4M5jF7L3aupDYpZCI1nmI"
         }
       ],
       "services": {
@@ -35,222 +35,8 @@
         "ads_service": {
           "status": 2
         }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:999440567942:android:2fc31eb041fc9016",
-        "android_client_info": {
-          "package_name": "com.kiskoo.lotteryhonduras"
-        }
       },
-      "oauth_client": [
-        {
-          "client_id": "999440567942-m189tmebfpld1fvpeb9evh96k6qq29kc.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBCnh8O9EJAXNF29kSII20plJJbXL58ATQ"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:999440567942:android:a9694db8d0728266",
-        "android_client_info": {
-          "package_name": "com.kiskoo.lotterymexico"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "999440567942-7otvr32jjkao5imhn610abn3n54srgvc.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.kiskoo.lotterymexico",
-            "certificate_hash": "8c18973baa56776f9e6cc4f2a2d3352b074cba32"
-          }
-        },
-        {
-          "client_id": "999440567942-m189tmebfpld1fvpeb9evh96k6qq29kc.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBCnh8O9EJAXNF29kSII20plJJbXL58ATQ"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "999440567942-m189tmebfpld1fvpeb9evh96k6qq29kc.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "999440567942-guqmn2lmeg5ccka5n5vklgm5cfdn3lei.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.kiskoo.loterias.world"
-              }
-            }
-          ]
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:999440567942:android:fd8c470f4745d58c",
-        "android_client_info": {
-          "package_name": "com.kiskoo.quinielasrd"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "999440567942-2r639smae580u4es9c2sktgsohht2rs0.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.kiskoo.quinielasrd",
-            "certificate_hash": "8c18973baa56776f9e6cc4f2a2d3352b074cba32"
-          }
-        },
-        {
-          "client_id": "999440567942-m189tmebfpld1fvpeb9evh96k6qq29kc.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBCnh8O9EJAXNF29kSII20plJJbXL58ATQ"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "999440567942-m189tmebfpld1fvpeb9evh96k6qq29kc.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "999440567942-guqmn2lmeg5ccka5n5vklgm5cfdn3lei.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.kiskoo.loterias.world"
-              }
-            }
-          ]
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:999440567942:android:ac131c633e135bb4",
-        "android_client_info": {
-          "package_name": "com.starterapp"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "999440567942-m189tmebfpld1fvpeb9evh96k6qq29kc.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBCnh8O9EJAXNF29kSII20plJJbXL58ATQ"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:999440567942:android:fb64d70504289e48",
-        "android_client_info": {
-          "package_name": "kiskoo.s.r.l"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "999440567942-33j29h4ptuhbl4gqsmf3hu5b26ddm1dt.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "kiskoo.s.r.l",
-            "certificate_hash": "8c18973baa56776f9e6cc4f2a2d3352b074cba32"
-          }
-        },
-        {
-          "client_id": "999440567942-m189tmebfpld1fvpeb9evh96k6qq29kc.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBCnh8O9EJAXNF29kSII20plJJbXL58ATQ"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "999440567942-m189tmebfpld1fvpeb9evh96k6qq29kc.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "999440567942-guqmn2lmeg5ccka5n5vklgm5cfdn3lei.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.kiskoo.loterias.world"
-              }
-            }
-          ]
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
+      "admob_app_id": "ca-app-pub-1196303242456869~6416749980"
     }
   ],
   "configuration_version": "1"

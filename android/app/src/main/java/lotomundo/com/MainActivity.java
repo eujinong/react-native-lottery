@@ -1,4 +1,4 @@
-package com.kiskoo.loterias.world;
+package lotomundo.com;
 
 import android.os.Bundle;
 

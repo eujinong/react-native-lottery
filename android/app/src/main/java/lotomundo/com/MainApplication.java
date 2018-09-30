@@ -1,4 +1,4 @@
-package com.kiskoo.loterias.world;
+package lotomundo.com;
 
 import android.app.Application;
 
@@ -6,9 +6,9 @@ import com.facebook.react.ReactApplication;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.horcrux.svg.SvgPackage;
-import com.BV.LinearGradient.LinearGradientPackage;
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.admob.RNFirebaseAdMobPackage;
+import io.invertase.firebase.analytics.RNFirebaseAnalyticsPackage;
 import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
@@ -31,14 +31,15 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new SplashScreenReactPackage(),
-            new LinearGradientPackage(),
-            new SvgPackage(),
-            new LinearGradientPackage(),
-            new RNFirebasePackage(),
-            new RNFirebaseAdMobPackage(),
-            new RNI18nPackage(),
-            new VectorIconsPackage()
+          new SplashScreenReactPackage(),
+          new LinearGradientPackage(),
+          new SvgPackage(),
+          new LinearGradientPackage(),
+          new RNFirebasePackage(),
+          new RNFirebaseAdMobPackage(),
+          new RNFirebaseAnalyticsPackage(),
+          new RNI18nPackage(),
+          new VectorIconsPackage()
       );
     }
 

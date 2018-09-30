@@ -93,7 +93,8 @@ class GameScreen extends Component {
       isLoading: true
     });
     const params = {
-      game_id: game.info.id
+      game_id: game.info.id,
+      multiple: true
     };
     if (date) {
       params.date = moment(date).format('YYYY-MM-DD');

@@ -45,12 +45,12 @@ const Api = {
       try {
         const ret = JSON.parse(Api.decrypt(key, data));
         return ret;
-      } catch (e) {
-        console.log(e);
+      } catch (error) {
+        console.log(error);
         try {
           const ret = JSON.parse(Api.decrypt(keySecondary, data));
           return ret;
-        } catch (e) { console.log(e); }
+        } catch (error) { console.log(error); }
       }
       return null;
     }
@@ -73,11 +73,10 @@ const Api = {
         SETTINGS.DIFFERENCE_IN_MILISECONDS = differenceInMiliseconds;
         return ret;
       }
-      return {};
     } catch (error) {
       console.log(error);
-      return {};
     }
+    return {};
   },
 
   async saveDomain(domain) {
@@ -88,8 +87,8 @@ const Api = {
       } else {
         await StorageApi.remove(FIELDS.DOMAIN);
       }
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      console.log(error);
     }
   },
 
@@ -100,8 +99,8 @@ const Api = {
         const domain = JSON.parse(domainString);
         return domain;
       }
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      console.log(error);
     }
     return null;
   },
@@ -115,11 +114,10 @@ const Api = {
         const data = await res.json();
         return Api.parseData(data);
       }
-      return null;
     } catch (error) {
       console.log(error);
-      return null;
     }
+    return null;
   },
 
   async getGame(domain, params) {
@@ -131,11 +129,10 @@ const Api = {
         const data = await res.json();
         return Api.parseData(data);
       }
-      return null;
     } catch (error) {
       console.log(error);
-      return null;
     }
+    return null;
   },
 
   async getCompanyGames(domain, params) {
@@ -147,11 +144,10 @@ const Api = {
         const data = await res.json();
         return Api.parseData(data);
       }
-      return [];
     } catch (error) {
       console.log(error);
-      return [];
     }
+    return [];
   },
 
   async getSearch(domain, query) {
@@ -162,11 +158,10 @@ const Api = {
         const data = await res.json();
         return Api.parseData(data);
       }
-      return null;
     } catch (error) {
       console.log(error);
-      return null;
     }
+    return null;
   },
 
   async getStatResult(domain, param) {
@@ -177,11 +172,10 @@ const Api = {
         const data = await res.json();
         return Api.parseData(data);
       }
-      return null;
     } catch (error) {
       console.log(error);
-      return null;
     }
+    return null;
   }
 };
 

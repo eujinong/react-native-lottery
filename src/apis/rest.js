@@ -3,11 +3,8 @@ import StringHelper from '../helpers/StringHelper';
 const RestApi = {
   get: (url, params = {}, headers = {}) => {
     const realHeaders = { ...headers };
-    const queryString = StringHelper.serializeObject(params);
-    let realURL = url;
-    if (queryString) {
-      realURL = `${url}?${queryString}`;
-    }
+    const realURL = StringHelper.queriedURL(url, params);
+    console.log(realURL);
     return fetch(realURL, {
       method: 'GET',
       headers: realHeaders
@@ -34,11 +31,7 @@ const RestApi = {
 
   delete: (url, params = {}, headers = {}) => {
     const realHeaders = { ...headers };
-    const queryString = StringHelper.serializeObject(params);
-    let realURL = url;
-    if (queryString) {
-      realURL = `${url}?${queryString}`;
-    }
+    const realURL = StringHelper.queriedURL(url, params);
     return fetch(realURL, {
       method: 'DELETE',
       headers: realHeaders

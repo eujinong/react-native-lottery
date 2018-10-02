@@ -1,5 +1,5 @@
 const StringHelper = {
-  serializeObject: (params) => {
+  serialize: (params) => {
     const str = [];
     if (!params) return '';
     Object.keys(params).forEach((key) => {
@@ -7,6 +7,16 @@ const StringHelper = {
       str.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`);
     });
     return str.join('&');
+  },
+  queriedURL: (url, params) => {
+    const query = StringHelper.serialize(params);
+    if (query) {
+      if (url.indexOf('?') === -1) {
+        return `${url}?${query}`;
+      }
+      return `${url}&${query}`;
+    }
+    return url;
   },
   toUpperCase: value => (value ? value.toUpperCase() : ''),
   toLowerCase: value => (value ? value.toLowerCase() : ''),

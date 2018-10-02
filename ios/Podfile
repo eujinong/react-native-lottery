@@ -45,4 +45,12 @@ target 'loterias' do
 
   pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
 
+  post_install do |installer_representation|
+    installer_representation.pods_project.targets.each do |target|
+      if target.name == "React"
+        target.remove_from_project
+      end
+    end
+  end
+
 end

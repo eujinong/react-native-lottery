@@ -1437,6 +1437,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = lotomundo.com;
 				PRODUCT_NAME = loterias;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1461,6 +1462,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = lotomundo.com;
 				PRODUCT_NAME = loterias;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

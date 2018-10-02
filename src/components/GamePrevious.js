@@ -19,7 +19,7 @@ const styles = {
   },
   row: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'baseline',
     justifyContent: 'center'
   },
   date: {

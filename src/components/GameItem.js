@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Image, TouchableOpacity, Text, View
-} from 'react-native';
+import { Image, TouchableOpacity, Text } from 'react-native';
 
 import AppHelper from '../helpers/AppHelper';
 import { NumbersCircle, NumbersStandard } from './Numbers';

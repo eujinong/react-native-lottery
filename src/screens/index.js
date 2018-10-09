@@ -75,7 +75,7 @@ class Index extends Component {
     request.addKeyword('interstitial');
     this.interstitial = firebase.admob().interstitial(CONFIG.ADMOB.SECRETS.INTERSTITIAL);
     this.interstitial.on('onAdLoaded', () => {
-      console.log('loaded');
+      console.log('interstitial has been loaded.');
     });
 
     this.interstitial.on('onAdClosed', () => {

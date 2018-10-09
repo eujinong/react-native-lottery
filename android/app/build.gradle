@@ -95,6 +95,7 @@ def enableProguardInReleaseBuilds = false
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         applicationId "lotomundo.com"
@@ -144,7 +145,6 @@ android {
             }
         }
     }
-    buildToolsVersion '27.0.3'
 }
 
 dependencies {
@@ -161,7 +161,7 @@ dependencies {
 
     // Firebase dependencies
     implementation "com.google.android.gms:play-services-base:15.0.1"
-    implementation "com.google.firebase:firebase-core:16.0.1"
+    implementation "com.google.firebase:firebase-core:16.0.3"
     implementation "com.google.firebase:firebase-ads:15.0.1"
 
 }

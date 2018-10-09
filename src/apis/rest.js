@@ -4,7 +4,6 @@ const RestApi = {
   get: (url, params = {}, headers = {}) => {
     const realHeaders = { ...headers };
     const realURL = StringHelper.queriedURL(url, params);
-    console.log(realURL);
     return fetch(realURL, {
       method: 'GET',
       headers: realHeaders

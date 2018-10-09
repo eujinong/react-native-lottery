@@ -65,7 +65,9 @@ class Index extends Component {
         this.setState({
           rewardedCount: global.rewardedCount
         });
-        this.showInterstitial();
+        setTimeout(() => {
+          this.showInterstitial();
+        }, 100);
       }
     }
   }
@@ -98,7 +100,7 @@ class Index extends Component {
       <View style={Styles.container}>
         <MainNavigator ref={(navigator) => { this.navigator = navigator; }} />
         <Banner
-          key={this.props.global.rewardedCount === CONFIG.ADMOB.REWARDED_MAX}
+          key={this.state.rewardedCount === CONFIG.ADMOB.REWARDED_MAX}
           unitId={CONFIG.ADMOB.SECRETS.BANNER}
           request={new AdRequest().build()}
           onAdLoaded={() => {}}

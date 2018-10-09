@@ -20,7 +20,8 @@ const styles = {
   row: {
     flexDirection: 'row',
     alignItems: 'baseline',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    paddingVertical: Metrics.padding.mini
   },
   date: {
     color: Colors.textMuted,

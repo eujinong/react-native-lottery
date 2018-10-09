@@ -44,17 +44,13 @@ class Index extends Component {
       isLoaded: false,
       rewardedCount: props.global.rewardedCount
     };
-
-    this.requestInterstitial();
-
-    this.bannerRequest = new AdRequest();
-    this.bannerRequest.addKeyword('banner');
   }
 
   async componentDidMount() {
     SplashScreen.hide();
     const config = await Api.getConfig();
     this.props.setConfig(config);
+    this.requestInterstitial();
     setTimeout(() => {
       this.setState({
         isLoaded: true
@@ -83,7 +79,7 @@ class Index extends Component {
     });
 
     this.interstitial.on('onAdClosed', () => {
-      console.log('closed');
+      console.log('interstitial has been closed.');
       this.props.increaseRewarded(true);
       this.requestInterstitial();
     });

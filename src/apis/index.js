@@ -76,7 +76,7 @@ const Api = {
     } catch (error) {
       console.log(error);
     }
-    return {};
+    return null;
   },
 
   async saveDomain(domain) {

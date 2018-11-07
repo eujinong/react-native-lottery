@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { NetInfo, View } from 'react-native';
 import { connect } from 'react-redux';
 import firebase from 'react-native-firebase';
-import { StackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 import SplashScreen from 'react-native-splash-screen';
+import DropdownAlert from 'react-native-dropdownalert';
+import ExitApp from 'react-native-exit-app';
+import I18n from 'react-native-i18n';
 
 import { Styles } from '../theme';
 import Api from '../apis';
@@ -17,7 +20,7 @@ import CONFIG from '../config';
 
 const { Banner, AdRequest } = firebase.admob;
 
-const MainNavigator = StackNavigator({
+const MainNavigator = createStackNavigator({
   domains: {
     screen: DomainsScreen
   },
@@ -39,22 +42,31 @@ const MainNavigator = StackNavigator({
 class Index extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       isLoaded: false,
-      rewardedCount: props.global.rewardedCount
+      rewardedCount: props.global && props.global.rewardedCount ? props.global.rewardedCount : 0
     };
   }
 
   async componentDidMount() {
+    NetInfo.addEventListener(
+      'connectionChange',
+      this.handleConnectionChange.bind(this)
+    );
     SplashScreen.hide();
     const config = await Api.getConfig();
+    if (config === null) {
+      this.alertWithType('error', I18n.t('error'), I18n.t('there_is_no_internet_connection'));
+      setTimeout(() => {
+        ExitApp.exitApp();
+      }, 2000);
+    }
     this.props.setConfig(config);
-    this.requestInterstitial();
     setTimeout(() => {
       this.setState({
         isLoaded: true
       });
+      this.requestInterstitial();
     }, 100);
   }
 
@@ -95,6 +107,15 @@ class Index extends Component {
     }
   }
 
+  handleConnectionChange(connectionInfo) {
+    if (connectionInfo.type === 'none' || connectionInfo.type === 'unknown') {
+      this.alertWithType('error', I18n.t('error'), I18n.t('there_is_no_internet_connection'));
+      setTimeout(() => {
+        ExitApp.exitApp();
+      }, 2000);
+    }
+  }
+
   renderMain() {
     return (
       <View style={Styles.container}>
@@ -103,7 +124,9 @@ class Index extends Component {
           key={this.state.rewardedCount === CONFIG.ADMOB.REWARDED_MAX}
           unitId={CONFIG.ADMOB.SECRETS.BANNER}
           request={new AdRequest().build()}
-          onAdLoaded={() => {}}
+          onAdLoaded={() => {
+            console.log('banner has ben loaded.');
+          }}
         />
       </View>
     );
@@ -122,6 +145,7 @@ class Index extends Component {
             </View>
           )
         }
+        <DropdownAlert ref={(ref) => { this.alert = ref; }} />
       </View>
     );
   }

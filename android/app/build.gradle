@@ -148,6 +148,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-exit-app')
     implementation project(':react-native-splash-screen')
     implementation project(':react-native-linear-gradient')
     implementation project(':react-native-svg')

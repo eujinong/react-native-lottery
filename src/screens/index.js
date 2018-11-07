@@ -107,6 +107,10 @@ class Index extends Component {
     }
   }
 
+  alertWithType(type, title, message) {
+    this.alert.alertWithType(type, title, message);
+  }
+
   handleConnectionChange(connectionInfo) {
     if (connectionInfo.type === 'none' || connectionInfo.type === 'unknown') {
       this.alertWithType('error', I18n.t('error'), I18n.t('there_is_no_internet_connection'));

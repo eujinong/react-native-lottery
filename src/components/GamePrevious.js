@@ -44,9 +44,9 @@ const GamePrevious = (props) => {
     data
   } = props;
   const renderResults = [];
-  for (let i = data.length - 1; i >= 0; i--) {
+  for (let i = 1, ni = data.length; i < ni; i++) {
     const item = data[i];
-    const date = moment(item.date, 'YYYY-MM-DD').format('DD/MM');
+    const date = moment(item.date, 'DD-MM-YYYY').format('DD/MM');
     const renderResult = (
       <View style={styles.row} key={`${i}`}>
         <Text style={styles.date}>{`${date} | `}</Text>

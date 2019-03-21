@@ -3,9 +3,11 @@ package lotomundo.com;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 import com.github.wumke.RNExitApp.RNExitAppPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
+import com.google.firebase.FirebaseApp;
 import com.horcrux.svg.SvgPackage;
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.admob.RNFirebaseAdMobPackage;
@@ -32,7 +34,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNExitAppPackage(),
+          new RNExitAppPackage(),
           new SplashScreenReactPackage(),
           new LinearGradientPackage(),
           new SvgPackage(),

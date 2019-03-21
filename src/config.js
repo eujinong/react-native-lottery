@@ -1,6 +1,7 @@
 import { Platform } from 'react-native';
 
 const config = {
+  PRIVACY_URL: 'https://lotomundo.com/politica-de-privacidad/',
   API_ENDPOINT: 'https://loteriasdominicanas.com/mobile-api-new',
 
   // ADMOB

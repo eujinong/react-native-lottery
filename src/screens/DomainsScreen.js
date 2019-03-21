@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { ScrollView, View } from 'react-native';
+import {
+  ScrollView, View, Text, Linking
+} from 'react-native';
 import { connect } from 'react-redux';
 
 import {
-  Metrics, Styles
+  Metrics, Styles, Fonts, Colors
 } from '../theme';
+import CONFIG from '../config';
 import Api from '../apis';
 import { setSplashing, increaseRewarded } from '../actions/global';
 import DomainItem from '../components/DomainItem';
@@ -21,6 +24,14 @@ const styles = {
   listItem: {
     width: (Metrics.dimension.width) / 2 - Metrics.padding.tiny,
     padding: Metrics.padding.tiny
+  },
+  privacy: {
+    color: Colors.text,
+    fontSize: Fonts.size.h6,
+    marginVertical: Metrics.padding.small,
+    textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 };
 
@@ -68,6 +79,16 @@ class DomainsScreen extends Component {
             }
           </View>
         </ScrollView>
+        <Text
+          style={[
+            styles.privacy
+          ]}
+        >
+          <Text
+            onPress={() => Linking.openURL(CONFIG.PRIVACY_URL)}>
+            Política de Privacidad
+          </Text>
+        </Text>
       </View>
     );
   }

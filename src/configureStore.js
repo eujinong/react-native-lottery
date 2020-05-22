@@ -20,3 +20,5 @@ function configureStore(initialState = fromJS({})) {
 }
 
 module.exports = configureStore;
+
+
